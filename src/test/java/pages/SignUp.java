@@ -3,7 +3,6 @@ package pages;
 import org.hamcrest.core.IsCollectionContaining;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
@@ -62,7 +61,7 @@ public class SignUp extends BasePage {
     @FindBy(id = "submitAccount")
     private WebElement submitFormBtn;
 
-    @FindAll(@FindBy(css = "#center_column > .alert li"))
+    @FindBy(css = "#center_column > .alert li")
     private List<WebElement> alertMessageContent;
 
     private void fillInRegistrationForm(boolean validForm) {
@@ -110,6 +109,7 @@ public class SignUp extends BasePage {
         for(WebElement message : alertMessageContent) {
             alertMessages.add(message.getText());
         }
+        System.out.println(alertMessages);
         return alertMessages;
     }
 
