@@ -6,7 +6,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 import static utility.Screenshot.captureScreenshot;
 
-public class Home extends Base {
+public class Home extends BasePage {
 
     public Home() {
         super();
@@ -19,6 +19,7 @@ public class Home extends Base {
     public SignIn openSignInPage() {
         signInButton.click();
         captureScreenshot();
+
         return new SignIn();
     }
 }

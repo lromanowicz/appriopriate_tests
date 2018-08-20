@@ -1,6 +1,5 @@
 package pages;
 
-import org.hamcrest.collection.IsArrayContaining;
 import org.hamcrest.core.IsCollectionContaining;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -16,7 +15,7 @@ import java.util.List;
 
 import static utility.Screenshot.captureScreenshot;
 
-public class SignUp extends Base{
+public class SignUp extends BasePage {
 
     public SignUp() {
         super();
@@ -103,7 +102,6 @@ public class SignUp extends Base{
     public void userShouldSeeRegistrationFormAlert() {
         String EXPECTED_MESSAGE = "firstname is required.";
         Assert.assertThat(getAlertMessageContent(), IsCollectionContaining.hasItem(EXPECTED_MESSAGE));
-        captureScreenshot();
     }
 
     private List<String> getAlertMessageContent() {

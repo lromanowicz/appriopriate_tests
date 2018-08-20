@@ -1,10 +1,10 @@
 package tests;
 
-import config.TestBase;
+import config.TestConfig;
 import org.junit.Test;
 import pages.Home;
 
-public class RegistrationTest extends TestBase {
+public class RegistrationTest extends TestConfig {
 
     @Test
     public void userShouldSuccessfullyRegister() {

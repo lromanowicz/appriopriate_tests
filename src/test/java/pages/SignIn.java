@@ -7,7 +7,7 @@ import utility.DataFaker;
 
 import static utility.Screenshot.captureScreenshot;
 
-public class SignIn extends Base {
+public class SignIn extends BasePage {
 
     public SignIn() {
         super();
@@ -21,21 +21,15 @@ public class SignIn extends Base {
     @FindBy(id = "SubmitCreate")
     private WebElement createAccountButton;
 
-    private void fillInCreateAccountForm(boolean validForm) {
-        emailInput.sendKeys(faker.getFakeEmail());
+    private void fillInCreateAccountForm(String emailAddress) {
+        emailInput.sendKeys(emailAddress);
     }
 
     @Step
     public SignUp submitCreateAccountFormWithValidEmail() {
-        fillInCreateAccountForm(true);
+        fillInCreateAccountForm(faker.getFakeEmail());
         captureScreenshot();
         createAccountButton.click();
         return new SignUp();
-    }
-
-    @Step
-    public SignIn submitCreateAccountFormWithoutEmail() {
-        createAccountButton.click();
-        return this;
     }
 }
